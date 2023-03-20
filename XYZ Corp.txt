@@ -1,0 +1,35 @@
+
+Employees Table:
+
+selects all columns and rows from the employees table
+(a) SELECT * FROM employees;     
+
+selects the name and salary columns from the employees table for employees who have a salary greater than 50000.
+(b) SELECT name, salary FROM employees WHERE salary > 50000;
+
+calculates the average salary of all employees in the employees table.
+(c) SELECT AVG(salary) FROM employees;
+
+counts the number of employees in the employees table who work in the department with the name "Marketing."
+(d) SELECT COUNT(*) FROM employees WHERE department_id = (SELECT id FROM departments WHERE name = 'Marketing');
+
+counts the number of employees in the employees table who work in the department with the name "Marketing."
+(e) UPDATE employees SET salary = 60000 WHERE id = 1001;
+
+deletes all rows from the employees table where the salary is less than 30000.
+(f) DELETE FROM employees WHERE salary < 30000;
+
+
+Departments Table: 
+
+selects all columns and rows from the departments table.
+(a) SELECT * FROM departments;
+
+selects the name and manager columns from the departments table for the department with the name "Finance."
+(b) SELECT name, manager FROM departments WHERE name = 'Finance';
+
+joins the employees and departments tables based on the department_id column, calculates the count of employees in each department, and groups the result by the department name.
+(c) SELECT departments.name, COUNT(*) FROM employees JOIN departments ON employees.department_id = departments.id GROUP BY departments.name;
+
+inserts a new row into the departments table with the name "Research" and the manager "John Doe."
+(d) INSERT INTO departments (name, manager) VALUES ('Research', 'John Doe');
